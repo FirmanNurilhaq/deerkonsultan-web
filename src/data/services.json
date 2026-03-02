@@ -1,0 +1,23 @@
+[
+    {
+        "slug": "konsultasi-bisnis",
+        "title": "Konsultasi Bisnis",
+        "description": "Strategi ekspansi pasar dan optimasi operasional perusahaan untuk skala nasional.",
+        "content": "Kami membantu perusahaan Anda melakukan analisis SWOT mendalam dan menyusun roadmap strategi 5 tahun ke depan.",
+        "icon": "📈"
+    },
+    {
+        "slug": "analisis-keuangan",
+        "title": "Analisis Keuangan",
+        "description": "Audit internal dan perencanaan finansial jangka panjang yang akurat.",
+        "content": "Layanan kami mencakup manajemen arus kas, proyeksi keuntungan, dan efisiensi pajak untuk bisnis konsultan.",
+        "icon": "💰"
+    },
+    {
+        "slug": "digital-transformation",
+        "title": "Digital Transformation",
+        "description": "Membantu bisnis konvensional go-digital dengan teknologi terbaru.",
+        "content": "Kami mengintegrasikan sistem Cloud, otomatisasi AI, dan pengembangan web modern untuk operasional Anda.",
+        "icon": "💻"
+    }
+]

@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+// Mengambil koleksi 'blog' yang sudah didefinisikan di config.ts
+const posts = await getCollection('blog');
+
+// Mengurutkan dari yang terbaru
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout 
+	title="Blog & Artikel | Deerworshiper Consulting"
+	description="Wawasan terbaru mengenai strategi bisnis, keuangan, dan transformasi digital."
+>
+	<section class="py-20 px-4 bg-slate-50 min-h-screen">
+		<div class="max-w-7xl mx-auto">
+			<div class="text-center mb-16">
+				<h1 class="text-4xl md:text-5xl font-bold mb-4">Wawasan Bisnis</h1>
+				<div class="h-1.5 w-20 bg-indigo-600 mx-auto rounded-full mb-6"></div>
+				<p class="text-slate-600 max-w-2xl mx-auto">Artikel terbaru dari para ahli konsultan kami untuk membantu pertumbuhan bisnis Anda.</p>
+			</div>
+
+			{sortedPosts.length > 0 ? (
+				<div class="grid md:grid-cols-3 gap-10">
+					{sortedPosts.map((post) => (
+						<article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-slate-100 flex flex-col">
+							<img src={post.data.image} alt={post.data.title} class="w-full h-48 object-cover" />
+							<div class="p-8 flex flex-col flex-1">
+								<p class="text-sm text-indigo-600 font-semibold mb-3">
+									{post.data.pubDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+								</p>
+								<h2 class="text-2xl font-bold mb-4 hover:text-indigo-600 transition">
+									<a href={`/blog/${post.slug || post.id}`}>{post.data.title}</a>
+								</h2>
+								<p class="text-slate-600 line-clamp-3 mb-6 flex-1">{post.data.description}</p>
+								<a href={`/blog/${post.slug || post.id}`} class="text-slate-900 font-bold flex items-center group">
+									Baca Selengkapnya
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+									</svg>
+								</a>
+							</div>
+						</article>
+					))}
+				</div>
+			) : (
+				<div class="text-center p-20 bg-white rounded-3xl border-2 border-dashed border-slate-200">
+					<p class="text-slate-400">Belum ada artikel. Pastikan file .md ada di folder src/content/blog/</p>
+				</div>
+			)}
+		</div>
+	</section>
+</Layout>

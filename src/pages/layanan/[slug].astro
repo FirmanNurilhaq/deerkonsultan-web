@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import services from '../../data/services.json';
+
+// Fungsi wajib Astro untuk generate halaman statis saat build
+export async function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+---
+
+<Layout 
+  title={`${service.title} | Deerworshiper Consulting`} 
+  description={service.description}
+>
+  <section class="py-20 max-w-4xl mx-auto px-4">
+    <a href="/" class="text-indigo-600 mb-8 inline-block">← Kembali ke Beranda</a>
+    
+    <div class="text-6xl mb-6">{service.icon}</div>
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">{service.title}</h1>
+    
+    <div class="prose prose-lg text-slate-600 leading-relaxed">
+      <p class="text-xl font-medium text-slate-900 mb-4">{service.description}</p>
+      <p>{service.content}</p>
+      
+      <div class="mt-12 p-8 bg-indigo-50 rounded-2xl border border-indigo-100">
+        <h3 class="text-indigo-900 font-bold mb-2">Mengapa Memilih Layanan Ini?</h3>
+        <ul class="list-disc ml-5 space-y-2 text-indigo-800">
+          <li>Konsultan berpengalaman lebih dari 5 tahun.</li>
+          <li>Pendekatan berbasis data (Data-Driven).</li>
+          <li>Laporan progres mingguan yang transparan.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
