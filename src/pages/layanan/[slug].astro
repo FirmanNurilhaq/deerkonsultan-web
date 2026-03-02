@@ -2,7 +2,6 @@
 import Layout from '../../layouts/Layout.astro';
 import services from '../../data/services.json';
 
-// Fungsi wajib Astro untuk generate halaman statis saat build
 export async function getStaticPaths() {
   return services.map((service) => ({
     params: { slug: service.slug },
@@ -14,26 +13,46 @@ const { service } = Astro.props;
 ---
 
 <Layout 
-  title={`${service.title} | Deerworshiper Consulting`} 
+  title={`${service.title} | Strategic Excellence`} 
   description={service.description}
 >
-  <section class="py-20 max-w-4xl mx-auto px-4">
-    <a href="/" class="text-indigo-600 mb-8 inline-block">← Kembali ke Beranda</a>
+  <section class="py-32 max-w-4xl mx-auto px-4 min-h-screen">
+    <a href="/#layanan" class="group text-indigo-400 font-black text-xs uppercase tracking-widest mb-12 inline-flex items-center gap-2 hover:text-white transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:-translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Back to Expertise
+    </a>
     
-    <div class="text-6xl mb-6">{service.icon}</div>
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">{service.title}</h1>
-    
-    <div class="prose prose-lg text-slate-600 leading-relaxed">
-      <p class="text-xl font-medium text-slate-900 mb-4">{service.description}</p>
-      <p>{service.content}</p>
+    <div class="glass p-12 md:p-20 rounded-[3rem] border-white/5 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-600/10 rounded-full blur-[100px] -z-10"></div>
       
-      <div class="mt-12 p-8 bg-indigo-50 rounded-2xl border border-indigo-100">
-        <h3 class="text-indigo-900 font-bold mb-2">Mengapa Memilih Layanan Ini?</h3>
-        <ul class="list-disc ml-5 space-y-2 text-indigo-800">
-          <li>Konsultan berpengalaman lebih dari 5 tahun.</li>
-          <li>Pendekatan berbasis data (Data-Driven).</li>
-          <li>Laporan progres mingguan yang transparan.</li>
-        </ul>
+      <div class="text-7xl mb-10">{service.icon}</div>
+      <h1 class="text-5xl md:text-7xl font-black mb-8 text-white tracking-tighter uppercase leading-none">
+        {service.title}
+      </h1>
+      
+      <div class="space-y-8 text-slate-400 text-lg leading-relaxed">
+        <p class="text-white font-bold text-2xl border-l-4 border-indigo-500 pl-6 my-10">
+          {service.description}
+        </p>
+        <p>{service.content}</p>
+        
+        <div class="mt-16 grid gap-6">
+          <div class="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-indigo-500/30 transition-colors">
+            <h3 class="text-white font-black uppercase tracking-widest mb-4 text-sm">Key Strategic Values</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3 text-sm">
+                <span class="h-1.5 w-1.5 bg-indigo-500 rounded-full"></span>
+                Data-driven methodology for precision execution.
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <span class="h-1.5 w-1.5 bg-indigo-500 rounded-full"></span>
+                Scalable architectures for global market expansion.
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
