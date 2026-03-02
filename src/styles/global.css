@@ -7,17 +7,50 @@
 
 :root {
     scroll-behavior: smooth;
+    /* Mode Terang (Default) */
+    --bg-color: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --nav-text: #1e293b;
+}
+
+:root.dark {
+    /* Mode Gelap */
+    --bg-color: #020617;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --nav-text: #f1f5f9;
 }
 
 body {
-    @apply bg-[#020617] text-slate-200 selection: bg-indigo-500 selection:text-white;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Custom Glassmorphism */
 .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    background-color: var(--card-bg);
+    backdrop-blur: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.text-main {
+    color: var(--text-main);
+}
+
+.text-muted {
+    color: var(--text-muted);
 }
 
 .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-cyan-400 to-blue-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+}
+
+::selection {
+    background-color: #6366f1;
+    color: white;
 }

@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import services from '../data/services.json';
+
+const waNumber = "6285156936047";
 ---
 
 <Layout 
@@ -8,30 +10,30 @@ import services from '../data/services.json';
 	description="Konsultan strategis untuk pertumbuhan bisnis digital yang eksponensial."
 >
 	<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-600/20 rounded-full blur-[160px] -z-10"></div>
+		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-500/10 rounded-full blur-[160px] -z-10"></div>
 		
 		<div class="max-w-5xl mx-auto px-4 text-center">
-			<div class="inline-flex items-center gap-2 px-4 py-2 glass rounded-full mb-8 border-white/20">
+			<div class="inline-flex items-center gap-2 px-4 py-2 glass rounded-full mb-8 border-indigo-500/20">
 				<span class="relative flex h-2 w-2">
 					<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
 					<span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
 				</span>
-				<span class="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-300">Available for 2026 Strategy</span>
+				<span class="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-500">Available for 2026 Strategy</span>
 			</div>
 			
-			<h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9] text-white">
+			<h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9] transition-colors" style="color: var(--text-main)">
 				Mastering the <br/> <span class="text-gradient">Digital Edge.</span>
 			</h1>
 			
-			<p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-				Kami tidak hanya memberikan saran. Kami memberikan arsitektur pertumbuhan untuk bisnis yang berani mendominasi masa depan.
+			<p class="text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed transition-colors" style="color: var(--text-muted)">
+				Kami memberikan arsitektur pertumbuhan untuk pemimpin bisnis yang berani mendominasi masa depan dengan data dan eksekusi presisi.
 			</p>
 
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<a href="#layanan" class="px-10 py-5 bg-white text-black font-black rounded-2xl hover:bg-indigo-400 hover:text-white transition-all duration-500 shadow-[0_20px_40px_rgba(255,255,255,0.1)]">
+				<a href="#layanan" class="px-10 py-5 bg-indigo-600 text-white font-black rounded-2xl hover:bg-indigo-500 hover:shadow-[0_20px_40px_rgba(99,102,241,0.3)] transition-all duration-300">
 					Eksplorasi Layanan
 				</a>
-				<a href="/blog" class="px-10 py-5 glass text-white font-black rounded-2xl hover:bg-white/10 transition-all">
+				<a href="/blog" class="px-10 py-5 glass font-black rounded-2xl hover:bg-indigo-500/10 transition-all" style="color: var(--text-main)">
 					Baca Wawasan
 				</a>
 			</div>
@@ -42,23 +44,27 @@ import services from '../data/services.json';
 		<div class="max-w-7xl mx-auto">
 			<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
 				<div class="max-w-xl">
-					<h2 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter uppercase">Our Expertise</h2>
-					<p class="text-slate-500">Pendekatan multidisiplin untuk memecahkan masalah bisnis paling kompleks di era modern.</p>
+					<h2 class="text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase transition-colors" style="color: var(--text-main)">Our Expertise</h2>
+					<p class="text-muted">Pendekatan multidisiplin untuk memecahkan masalah bisnis paling kompleks di era modern.</p>
 				</div>
-				<div class="h-px flex-1 bg-white/10 hidden md:block mb-6 ml-10"></div>
+				<div class="h-px flex-1 bg-indigo-500/20 hidden md:block mb-6 ml-10"></div>
 			</div>
 
-			<div class="grid md:grid-cols-3 gap-6">
+			<div class="grid md:grid-cols-3 gap-8">
 				{services.map(service => (
-					<a href={`/layanan/${service.slug}`} class="group relative p-10 glass rounded-[2rem] hover:bg-white/10 transition-all duration-500 border-white/5 overflow-hidden">
-						<div class="absolute -right-4 -top-4 w-24 h-24 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/30 transition-all"></div>
+					<a href={`/layanan/${service.slug}`} class="group relative p-10 glass rounded-[2.5rem] hover:bg-indigo-500/5 transition-all duration-500 overflow-hidden block border-white/5">
+						<div class="absolute -right-4 -top-4 w-24 h-24 bg-indigo-500/0 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-all duration-700"></div>
 						
-						<div class="text-5xl mb-8 group-hover:scale-110 transition-transform inline-block">{service.icon}</div>
-						<h3 class="text-2xl font-black mb-4 text-white group-hover:text-indigo-400 transition-colors tracking-tight uppercase">{service.title}</h3>
-						<p class="text-slate-500 leading-relaxed mb-8 text-sm">{service.description}</p>
+						<div class="text-5xl mb-8 group-hover:scale-110 transition-transform duration-500 inline-block">{service.icon}</div>
+						<h3 class="text-2xl font-black mb-4 group-hover:text-indigo-500 transition-colors tracking-tight uppercase" style="color: var(--text-main)">
+							{service.title}
+						</h3>
+						<p class="leading-relaxed mb-8 text-sm transition-colors" style="color: var(--text-muted)">
+							{service.description}
+						</p>
 						
-						<div class="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-indigo-400">
-							View Details 
+						<div class="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-indigo-500">
+							Detail Layanan
 							<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 							</svg>
@@ -70,11 +76,12 @@ import services from '../data/services.json';
 	</section>
 
 	<section class="py-32 px-4">
-		<div class="max-w-6xl mx-auto glass rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden border-indigo-500/20 shadow-2xl">
-			<div class="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-transparent -z-10"></div>
-			<h2 class="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter">READY TO LEAD?</h2>
-			<p class="text-slate-400 text-lg mb-12 max-w-xl mx-auto font-medium">Jangan biarkan potensi Anda terbuang. Mari bangun warisan bisnis Anda hari ini.</p>
-			<a href="https://wa.me/your-number" class="inline-block px-12 py-6 bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xl rounded-2xl transition-all shadow-[0_20px_50px_rgba(99,102,241,0.3)] hover:-translate-y-2">
+		<div class="max-w-6xl mx-auto glass rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
+			<div class="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-transparent -z-10"></div>
+			<h2 class="text-4xl md:text-7xl font-black mb-8 tracking-tighter transition-colors" style="color: var(--text-main)">READY TO LEAD?</h2>
+			<p class="text-lg mb-12 max-w-xl mx-auto font-medium transition-colors" style="color: var(--text-muted)">Jangan biarkan potensi Anda terbuang. Mari bangun warisan bisnis Anda hari ini.</p>
+			
+			<a href={`https://wa.me/${waNumber}?text=Halo%20Deerworshiper,%20saya%20tertarik%20untuk%20diskusi%20lebih%20lanjut`} target="_blank" class="inline-block px-12 py-6 bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xl rounded-2xl transition-all shadow-[0_20px_50px_rgba(99,102,241,0.3)] hover:-translate-y-2">
 				MULAI DISKUSI
 			</a>
 		</div>
