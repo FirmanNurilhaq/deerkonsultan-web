@@ -13,7 +13,7 @@ const waNumber = "6285156936047";
 		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-500/10 rounded-full blur-[160px] -z-10"></div>
 		
 		<div class="max-w-5xl mx-auto px-4 text-center">
-			<div class="inline-flex items-center gap-2 px-4 py-2 glass rounded-full mb-8 border-indigo-500/20">
+			<div data-aos="fade-down" class="inline-flex items-center gap-2 px-4 py-2 glass rounded-full mb-8 border-indigo-500/20">
 				<span class="relative flex h-2 w-2">
 					<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
 					<span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
@@ -21,15 +21,15 @@ const waNumber = "6285156936047";
 				<span class="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-500">Available for 2026 Strategy</span>
 			</div>
 			
-			<h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9] transition-colors" style="color: var(--text-main)">
+			<h1 data-aos="fade-up" class="text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9] transition-colors" style="color: var(--text-main)">
 				Mastering the <br/> <span class="text-gradient">Digital Edge.</span>
 			</h1>
 			
-			<p class="text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed transition-colors" style="color: var(--text-muted)">
+			<p data-aos="fade-up" data-aos-delay="200" class="text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed transition-colors" style="color: var(--text-muted)">
 				Kami memberikan arsitektur pertumbuhan untuk pemimpin bisnis yang berani mendominasi masa depan dengan data dan eksekusi presisi.
 			</p>
 
-			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+			<div data-aos="fade-up" data-aos-delay="400" class="flex flex-col sm:flex-row gap-4 justify-center">
 				<a href="#layanan" class="px-10 py-5 bg-indigo-600 text-white font-black rounded-2xl hover:bg-indigo-500 hover:shadow-[0_20px_40px_rgba(99,102,241,0.3)] transition-all duration-300">
 					Eksplorasi Layanan
 				</a>
@@ -43,16 +43,21 @@ const waNumber = "6285156936047";
 	<section id="layanan" class="py-32 px-4">
 		<div class="max-w-7xl mx-auto">
 			<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-				<div class="max-w-xl">
+				<div class="max-w-xl" data-aos="fade-right">
 					<h2 class="text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase transition-colors" style="color: var(--text-main)">Our Expertise</h2>
 					<p class="text-muted">Pendekatan multidisiplin untuk memecahkan masalah bisnis paling kompleks di era modern.</p>
 				</div>
-				<div class="h-px flex-1 bg-indigo-500/20 hidden md:block mb-6 ml-10"></div>
+				<div class="h-px flex-1 bg-indigo-500/20 hidden md:block mb-6 ml-10" data-aos="stretch-x"></div>
 			</div>
 
 			<div class="grid md:grid-cols-3 gap-8">
-				{services.map(service => (
-					<a href={`/layanan/${service.slug}`} class="group relative p-10 glass rounded-[2.5rem] hover:bg-indigo-500/5 transition-all duration-500 overflow-hidden block border-white/5">
+				{services.map((service, index) => (
+					<a 
+						href={`/layanan/${service.slug}`} 
+						data-aos="fade-up" 
+						data-aos-delay={index * 150} 
+						class="group relative p-10 glass rounded-[2.5rem] hover:bg-indigo-500/5 transition-all duration-500 overflow-hidden block border-white/5"
+					>
 						<div class="absolute -right-4 -top-4 w-24 h-24 bg-indigo-500/0 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-all duration-700"></div>
 						
 						<div class="text-5xl mb-8 group-hover:scale-110 transition-transform duration-500 inline-block">{service.icon}</div>
@@ -76,7 +81,7 @@ const waNumber = "6285156936047";
 	</section>
 
 	<section class="py-32 px-4">
-		<div class="max-w-6xl mx-auto glass rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
+		<div data-aos="zoom-in" class="max-w-6xl mx-auto glass rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
 			<div class="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-transparent -z-10"></div>
 			<h2 class="text-4xl md:text-7xl font-black mb-8 tracking-tighter transition-colors" style="color: var(--text-main)">READY TO LEAD?</h2>
 			<p class="text-lg mb-12 max-w-xl mx-auto font-medium transition-colors" style="color: var(--text-muted)">Jangan biarkan potensi Anda terbuang. Mari bangun warisan bisnis Anda hari ini.</p>

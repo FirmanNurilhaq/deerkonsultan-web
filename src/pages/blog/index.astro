@@ -14,7 +14,7 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] -z-10"></div>
 
 		<div class="max-w-7xl mx-auto">
-			<header class="text-center mb-24">
+			<header class="text-center mb-24" data-aos="fade-down">
 				<p class="text-indigo-500 font-black text-[10px] uppercase tracking-[0.4em] mb-6">Expert Insights</p>
 				<h1 class="text-6xl md:text-8xl font-black tracking-tighter uppercase mb-8 transition-colors" style="color: var(--text-main)">
 					Latest <span class="text-gradient">Thought.</span>
@@ -23,8 +23,12 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 			</header>
 
 			<div class="grid md:grid-cols-3 gap-8">
-				{sortedPosts.map((post) => (
-					<article class="group glass rounded-[2.5rem] overflow-hidden border-white/5 hover:border-indigo-500/30 transition-all duration-500 flex flex-col shadow-2xl">
+				{sortedPosts.map((post, index) => (
+					<article 
+						class="group glass rounded-[2.5rem] overflow-hidden border-white/5 hover:border-indigo-500/30 transition-all duration-500 flex flex-col shadow-2xl"
+						data-aos="fade-up"
+						data-aos-delay={index * 150}
+					>
 						<div class="overflow-hidden h-64">
 							<img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
 						</div>
@@ -44,7 +48,7 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 							</p>
 							
 							<a href={`/blog/${post.id}`} class="text-xs font-black uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all" style="color: var(--text-main)">
-								Read Analysis <span class="text-indigo-500">→</span>
+								Read Analysis <span class="text-indigo-500 font-bold">→</span>
 							</a>
 						</div>
 					</article>
